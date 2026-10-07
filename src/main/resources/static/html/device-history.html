@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Device History - IoT Control Center</title>
+<link rel="stylesheet" href="../css/app.css" />
+<link rel="stylesheet" href="../css/history.css" />
+<link rel="stylesheet" href="../css/device-history.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span> IOT CONTROL CENTER</div>
+    <div class="sidebar-section-label">Menu</div>
+    <nav class="sidebar-nav" aria-label="Main navigation">
+      <a href="dashboard.html"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/></svg></span> Dashboard</a>
+      <a href="sensor-history.html"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span> Sensor Data</a>
+      <a href="device-history.html" class="active" aria-current="page"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Device History</a>
+      <a href="profile.html"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span> Profile</a>
+    </nav>
+    <div class="sidebar-footer"><span class="dot"></span> System Online</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <h1>Device History</h1>
+        <p class="subtitle">Search and view device control history</p>
+      </div>
+      <div class="topbar-right">
+        <div class="user-menu-wrap">
+          <button type="button" class="user-chip" id="user-chip" aria-expanded="false" aria-controls="user-menu">
+          <span class="user-avatar" aria-hidden="true">A</span>
+          <span class="user-name">Administrator</span>
+          <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="user-menu" id="user-menu">
+            <button type="button" id="logout-btn" class="logout-action">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="content">
+      <div class="card">
+        <form class="filter-bar" id="filter-form" novalidate>
+          <div class="filter-field">
+            <label for="f-device">Device</label>
+            <select id="f-device">
+              <option value="">All Devices</option>
+              <option value="Light 1">Light 1</option>
+              <option value="Light 2">Light 2</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="f-action">Action</label>
+            <select id="f-action">
+              <option value="">All Actions</option>
+              <option value="ON">ON</option>
+              <option value="OFF">OFF</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="f-status">Status</label>
+            <select id="f-status">
+              <option value="">All Status</option>
+              <option value="ON">ON</option>
+              <option value="OFF">OFF</option>
+              <option value="LOADING">LOADING</option>
+            </select>
+          </div>
+          <div class="filter-field">
+            <label for="f-date">Time</label>
+            <div class="field-with-icon">
+              <input type="text" id="f-date" aria-describedby="filter-error" placeholder="YYYY-MM-DD HH:mm:ss" inputmode="text" autocomplete="off" />
+              <span class="field-icon-right"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="button" class="btn btn-ghost" id="reset-btn">Reset</button>
+        </form>
+        <div class="filter-form-error" id="filter-error" role="alert" aria-live="polite"></div>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Data table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Device</th>
+                <th scope="col">Action</th>
+                <th scope="col">Status</th>
+                <th scope="col">Username</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <span id="summary-text" role="status" aria-live="polite">Showing 0 records</span>
+          <div class="table-footer-controls">
+            <label class="rows-per-page" for="rows-per-page">
+              <span>Rows per page:</span>
+              <select id="rows-per-page" aria-label="Rows per page">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+              </select>
+            </label>
+            <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+<script src="../js/history.js"></script>
+<script src="../js/device-history.js"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+/* Profile page-specific styles. */
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 54px 28px;
+}
+
+.user-menu .logout-action {
+  border-top: 1px solid var(--border);
+}
+
+.profile-card {
+  width: 460px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 16px;
+  border: 1px solid #99f6e4;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.profile-avatar svg {
+  width: 36px;
+  height: 36px;
+  stroke: currentColor;
+}
+
+.profile-card h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.profile-role {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.profile-divider {
+  height: 1px;
+  margin: 24px 0;
+  background: var(--border);
+}
+
+.profile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.profile-link {
+  display: grid;
+  grid-template-columns: 34px 1fr 20px;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #f8fafc;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+
+.profile-link:hover {
+  border-color: #99f6e4;
+  background: #f0fdfa;
+  transform: translateY(-1px);
+}
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent-dark);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.link-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.link-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.link-copy strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.link-copy small {
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link-arrow {
+  color: #94a3b8;
+}
+
+.link-arrow svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.profile-link:hover .link-arrow {
+  color: var(--accent-dark);
+}
