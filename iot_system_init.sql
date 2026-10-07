@@ -1,6 +1,3 @@
--- IoT Control Center - initial MySQL database
--- Run this file once in MySQL Workbench (or mysql CLI) before starting Spring Boot.
-
 CREATE DATABASE IF NOT EXISTS iot_system
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
@@ -53,21 +50,16 @@ CREATE TABLE IF NOT EXISTS action_history (
     INDEX idx_action_history_user_time (user_id, created_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Fixed users. All users have the same permissions.
--- Plain password for all three accounts: 123456
--- Passwords below are BCrypt hashes, not plain text.
 INSERT IGNORE INTO users (id, username, password, full_name, created_at) VALUES
     (1, 'admin',  '$2y$10$JxmC5GHyAv/i1JWGGG6c/.BjB4EiNAWv7pVkmW2K1LLJ6NI1DPXXe', 'Administrator', CURRENT_TIMESTAMP),
     (2, 'user01', '$2y$10$3IKHABFOohFYbWrJt6h9I.pY88fOjXFWc2bIxFxsFJtNktSwiqjfq', 'User 01', CURRENT_TIMESTAMP),
     (3, 'user02', '$2y$10$apCy47265Koc0Ku0KD4zAOx.Q2q19NP7vh.7clbgO4nF6WGvpHuZS', 'User 02', CURRENT_TIMESTAMP);
 
--- Fixed sensor IDs used by the backend when one ESP8266 measurement arrives.
 INSERT IGNORE INTO sensors (id, name, created_at) VALUES
     (1, 'Temperature', CURRENT_TIMESTAMP),
     (2, 'Humidity', CURRENT_TIMESTAMP),
     (3, 'Light', CURRENT_TIMESTAMP);
 
--- Fixed device IDs must match the ESP8266 command format: 1:ON / 1:OFF / 2:ON / 2:OFF.
 INSERT IGNORE INTO devices (id, name, status, created_at) VALUES
     (1, 'Light 1', 'OFF', CURRENT_TIMESTAMP),
     (2, 'Light 2', 'OFF', CURRENT_TIMESTAMP);
