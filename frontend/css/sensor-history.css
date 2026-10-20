@@ -1,0 +1,18 @@
+/* Sensor Data page-specific styles. */
+
+.filter-query-field {
+  min-width: 230px;
+}
+
+.filter-query-field .field-with-icon,
+.filter-query-field input {
+  width: 100%;
+}
+
+.field-icon-right.is-hidden {
+  display: none;
+}
+
+.filter-query-field input.has-time-icon {
+  padding-right: 32px;
+}

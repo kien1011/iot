@@ -1,0 +1,255 @@
+/* Shared styles for Sensor Data and Device History. */
+
+body {
+  overflow-x: auto;
+}
+
+.field-icon-right svg {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-bar {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filter-bar > .btn {
+  margin-top: 16px;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-field label {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.filter-field select,
+.filter-field input {
+  min-width: 150px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.filter-field input:focus,
+.filter-field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.filter-field input.is-invalid {
+  border-color: var(--off);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10);
+}
+
+.field-with-icon {
+  position: relative;
+}
+
+.field-icon-right {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.filter-form-error {
+  display: none;
+  margin: -8px 0 14px;
+  padding: 9px 11px;
+  border: 1px solid rgba(220, 38, 38, 0.22);
+  border-radius: 8px;
+  background: rgba(220, 38, 38, 0.06);
+  color: var(--off);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.filter-form-error.show {
+  display: block;
+}
+
+.btn {
+  padding: 9px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-ghost {
+  border-color: var(--border);
+  background: #fff;
+  color: var(--text-main);
+}
+
+.btn-ghost:hover {
+  background: #f8fafc;
+}
+
+/* Fixed viewport = 36px header + 10 x 38px rows. */
+.table-wrap {
+  flex: 0 0 416px;
+  height: 416px;
+  min-height: 416px;
+  max-height: 416px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-wrap.is-scrollable {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 36px;
+  padding: 9px 12px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+tbody td {
+  height: 38px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f1f5f9;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+.empty-row td {
+  padding: 36px 12px;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: normal;
+}
+
+.table-footer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.table-footer-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.rows-per-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.rows-per-page select {
+  min-width: 58px;
+  height: 30px;
+  padding: 0 24px 0 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text-main);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.rows-per-page select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.pagination {
+  display: flex;
+  gap: 4px;
+}
+
+.pagination button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.table-wrap:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

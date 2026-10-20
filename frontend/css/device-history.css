@@ -1,0 +1,9 @@
+/* Device History page-specific styles. */
+
+.field-with-icon input {
+  padding-right: 32px;
+}
+
+#f-date {
+  width: 230px;
+}
