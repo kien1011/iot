@@ -1,0 +1,19 @@
+# Java
+target/
+build/
+*.class
+
+# Frontend
+node_modules/
+dist/
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Local files
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db

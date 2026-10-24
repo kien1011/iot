@@ -1,0 +1,223 @@
+/* Dashboard page-specific styles. */
+
+:root {
+  --temp: #ea580c;
+  --humidity: #0284c7;
+  --light: #ca8a04;
+}
+
+.section-title {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.live-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.sensor-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sensor-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.sensor-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.sensor-icon.temp {
+  background: #fff7ed;
+  color: var(--temp);
+}
+
+.sensor-icon.humidity {
+  background: #e0f2fe;
+  color: var(--humidity);
+}
+
+.sensor-icon.light {
+  background: #fefce8;
+  color: var(--light);
+}
+
+.sensor-label {
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sensor-value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.sensor-updated {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.chart-card {
+  margin-bottom: 20px;
+}
+
+.chart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+.chart-head .section-title {
+  margin: 0;
+}
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chart-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chart-legend-line {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 999px;
+}
+
+.chart-legend-line.temp {
+  background: var(--temp);
+}
+
+.chart-legend-line.humidity {
+  background: var(--humidity);
+}
+
+.chart-legend-line.light {
+  background: var(--light);
+}
+
+.chart-wrap {
+  position: relative;
+  height: 340px;
+}
+
+.light-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.light-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  box-shadow: none;
+}
+
+.light-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.light-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 9px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.toggle-btn:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.light-card[aria-busy="true"] .toggle-btn {
+  opacity: 0.5;
+}
+
+.toggle-btn.on-btn.is-active {
+  border-color: var(--on);
+  background: var(--on);
+  color: #fff;
+}
+
+.toggle-btn.off-btn.is-active {
+  border-color: var(--off);
+  background: var(--off);
+  color: #fff;
+}
+
+.light-updated {
+  color: #94a3b8;
+  font-size: 11px;
+}

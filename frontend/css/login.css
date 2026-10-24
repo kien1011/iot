@@ -1,0 +1,245 @@
+/* Login page styles. */
+
+:root {
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --accent-soft: #ccfbf1;
+  --off: #dc2626;
+  --bg-page: #f1f5f9;
+  --border: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --shadow-elevated: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 1024px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-page);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+svg {
+  display: block;
+}
+
+.icon svg,
+.logo-mark svg {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.login-page {
+  min-height: 100vh;
+  padding: 96px 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #ecfdf5 0%, #f0fdfa 45%, #eff6ff 100%);
+}
+
+.login-brand {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.login-brand .logo-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+}
+
+.login-card {
+  width: 360px;
+  padding: 34px 30px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-elevated);
+  text-align: center;
+}
+
+.login-lock {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+}
+
+.login-lock svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.login-card h1 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.login-sub {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.field-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.input-with-icon .icon svg,
+.password-toggle svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+}
+
+.input-with-icon input {
+  width: 100%;
+  padding: 11px 12px 11px 34px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #f8fafc;
+  font: inherit;
+  font-size: 14px;
+}
+
+.input-with-icon.has-right-icon input {
+  padding-right: 38px;
+}
+
+.input-with-icon input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.input-with-icon input[aria-invalid="true"] {
+  border-color: var(--off);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10);
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.password-toggle:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 0;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.35);
+}
+
+.login-btn:hover {
+  background: var(--accent-dark);
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-error {
+  display: none;
+  margin-bottom: 14px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: var(--off);
+  font-size: 12.5px;
+  text-align: left;
+}
+
+.login-error.show {
+  display: block;
+}
+
+.login-footer {
+  margin: 22px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

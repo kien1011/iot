@@ -1,0 +1,28 @@
+/* Device History page-specific styles. */
+
+.field-with-icon input {
+  padding-right: 32px;
+}
+
+#f-date {
+  width: 230px;
+}
+
+/* Match the existing status-pill design while showing command results. */
+.status-pill.success {
+  background: #f0fdf4;
+  color: var(--on);
+}
+
+.status-pill.success .dot {
+  background: var(--on);
+}
+
+.status-pill.failed {
+  background: #fef2f2;
+  color: var(--off);
+}
+
+.status-pill.failed .dot {
+  background: var(--off);
+}
